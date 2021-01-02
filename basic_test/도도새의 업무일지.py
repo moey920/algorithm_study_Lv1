@@ -1,16 +1,17 @@
-B = int(input()) # 업무일지 B의 길이를 나타내는 정수 N을 입력합니다.
-Bi = list(map(int,input().split())) #업무일지 Bi이루는 N개의 정수를 입력합니다.
-j = [4,3,2,1,0]
+# 100점을 맞긴 했는데, 도저히 깔끔하다고 생각이 안됨. 다시 생각해보기..
+
+N = int(input())
+B = list(map(int, input().split()))
 a = []
+b = []
+count = 0
 
+for i in range(N) :
+    count = B[i]*(i+1)
+    a.append(count)
+    b.append(count-a[i-1])
 
-for i in range(5) :
-    a.insert(i, Bi[i]*(B-j[i]))
-    # a [1,4,6,12,20]
+b[0] = a[0]
 
-result = a
-result[4] = a[4]-a[3]
-result[3] = a[3]-a[2]
-result[2] = a[2]-a[1]
-result[1] = a[1]-a[0]
-result[0] = a[0]
+for i in range(N) :
+    print(b[i], end=' ')
